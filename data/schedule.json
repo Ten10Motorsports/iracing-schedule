@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T03:38:34Z",
+  "updatedAt": "2026-09-15T03:39:35Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -142,6 +142,29 @@
         "practiceOffsetMin": 120,
         "qualifyOffsetMin": 15,
         "raceLengthMin": 60,
+        "warmup": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "apex-this-mazda-ud4",
+      "name": "APEX This Mazda",
+      "short": "Apex S",
+      "color": "#ff7b00",
+      "timezone": "America/New_York",
+      "active": true,
+      "priority": 5,
+      "season": {
+        "name": "Apex This Mazdas S29",
+        "rounds": 0,
+        "startDate": "2026-09-13"
+      },
+      "defaults": {
+        "dayOfWeek": 2,
+        "startTime": "21:00",
+        "practiceOffsetMin": 120,
+        "qualifyOffsetMin": 15,
+        "raceLengthMin": 45,
         "warmup": false
       },
       "notes": ""
