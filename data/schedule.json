@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T03:14:46Z",
+  "updatedAt": "2026-09-15T03:16:00Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -74,6 +74,29 @@
         "qualifyOffsetMin": 15,
         "raceLengthMin": 60,
         "warmup": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "ten10-oval-grand-nationa-tyt",
+      "name": "Ten10 Oval Grand National",
+      "short": "Ten10O",
+      "color": "#ff0000",
+      "timezone": "America/New_York",
+      "active": true,
+      "priority": 2,
+      "season": {
+        "name": "Ten10 Oval Grand National",
+        "rounds": 12,
+        "startDate": "2026-09-17"
+      },
+      "defaults": {
+        "dayOfWeek": 4,
+        "startTime": "21:00",
+        "practiceOffsetMin": 60,
+        "qualifyOffsetMin": 15,
+        "raceLengthMin": 60,
+        "warmup": false
       },
       "notes": ""
     }
