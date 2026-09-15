@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T03:30:01Z",
+  "updatedAt": "2026-09-15T03:32:26Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -124,10 +124,10 @@
       "notes": ""
     },
     {
-      "id": "apex-this-ovals-m2v",
+      "id": "apex-this-ovals-ry1",
       "name": "APEX This Ovals",
       "short": "Apex W",
-      "color": "#00abf5",
+      "color": "#00bfff",
       "timezone": "America/New_York",
       "active": true,
       "priority": 4,
