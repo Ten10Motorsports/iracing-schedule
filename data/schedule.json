@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T03:26:37Z",
+  "updatedAt": "2026-09-15T03:27:36Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -56,14 +56,14 @@
   "leagues": [
     {
       "id": "ten10-moonday-twv",
-      "name": "Ten10 Motorsports2",
+      "name": "Ten10 Motorsports Moonday",
       "short": "Monday",
       "color": "#118f00",
       "timezone": "America/New_York",
       "active": true,
       "priority": 1,
       "season": {
-        "name": "Ten10 Monday IndyCar",
+        "name": "Ten10 Moonday IndyCar",
         "rounds": 12,
         "startDate": "2026-09-14"
       },
@@ -102,8 +102,8 @@
     },
     {
       "id": "apex-this-tiu",
-      "name": "APEX This",
-      "short": "ATTues",
+      "name": "APEX This Tuesday",
+      "short": "Apex T",
       "color": "#ffdd00",
       "timezone": "America/New_York",
       "active": true,
