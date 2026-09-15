@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T03:27:36Z",
+  "updatedAt": "2026-09-15T03:28:42Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -79,7 +79,7 @@
     },
     {
       "id": "ten10-oval-grand-nationa-tyt",
-      "name": "Ten10 Motorsports",
+      "name": "Ten10 Motorsports Ovals",
       "short": "Oval",
       "color": "#ff0000",
       "timezone": "America/New_York",
@@ -119,6 +119,29 @@
         "practiceOffsetMin": 120,
         "qualifyOffsetMin": 15,
         "raceLengthMin": 45,
+        "warmup": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "apex-this-ovals-rov",
+      "name": "APEX This Ovals",
+      "short": "Apex W",
+      "color": "#0041a8",
+      "timezone": "America/New_York",
+      "active": true,
+      "priority": 4,
+      "season": {
+        "name": "Apex This Oval S29 Arca",
+        "rounds": 12,
+        "startDate": "2026-09-16"
+      },
+      "defaults": {
+        "dayOfWeek": 2,
+        "startTime": "21:00",
+        "practiceOffsetMin": 60,
+        "qualifyOffsetMin": 15,
+        "raceLengthMin": 60,
         "warmup": false
       },
       "notes": ""
