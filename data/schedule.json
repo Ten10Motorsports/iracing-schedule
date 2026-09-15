@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T00:25:23Z",
+  "updatedAt": "2026-09-15T00:28:59Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -55,10 +55,10 @@
   },
   "leagues": [
     {
-      "id": "ten10-moonday-pw5",
+      "id": "ten10-moonday-twv",
       "name": "Ten10 Moonday",
       "short": "Ten10M",
-      "color": "#23a300",
+      "color": "#118f00",
       "timezone": "America/New_York",
       "active": true,
       "priority": 1,
@@ -71,9 +71,9 @@
         "dayOfWeek": 1,
         "startTime": "21:00",
         "practiceOffsetMin": 60,
-        "qualifyOffsetMin": 10,
+        "qualifyOffsetMin": 15,
         "raceLengthMin": 60,
-        "warmup": false
+        "warmup": true
       },
       "notes": ""
     }
