@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T03:28:42Z",
+  "updatedAt": "2026-09-15T03:30:01Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -124,10 +124,10 @@
       "notes": ""
     },
     {
-      "id": "apex-this-ovals-rov",
+      "id": "apex-this-ovals-m2v",
       "name": "APEX This Ovals",
       "short": "Apex W",
-      "color": "#0041a8",
+      "color": "#00abf5",
       "timezone": "America/New_York",
       "active": true,
       "priority": 4,
@@ -139,7 +139,7 @@
       "defaults": {
         "dayOfWeek": 2,
         "startTime": "21:00",
-        "practiceOffsetMin": 60,
+        "practiceOffsetMin": 120,
         "qualifyOffsetMin": 15,
         "raceLengthMin": 60,
         "warmup": false
