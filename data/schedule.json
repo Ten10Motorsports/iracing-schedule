@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-14T00:09:32.744Z",
+  "updatedAt": "2026-09-15T00:19:05Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing league calendar",
@@ -11,7 +11,7 @@
     "defaultView": "month",
     "adminPasscodeHash": "",
     "github": {
-      "owner": "",
+      "owner": "ten10motorsports",
       "repo": "iracing-schedule",
       "branch": "main",
       "dataPath": "data/schedule.json"
@@ -29,6 +29,8 @@
       "subjectTemplateEvening": "Starting soon: {{summary}}",
       "includePracticeTimes": true,
       "includeSiteLink": true,
+      "windowMinutes": 50,
+      "skipOnOffDays": true,
       "sends": [
         {
           "id": "morning",
@@ -48,9 +50,7 @@
           "enabled": true,
           "intro": "Still to come tonight."
         }
-      ],
-      "windowMinutes": 50,
-      "skipOnOffDays": true
+      ]
     }
   },
   "leagues": [
