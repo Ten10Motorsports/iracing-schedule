@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T03:20:36Z",
+  "updatedAt": "2026-09-15T03:23:52Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -56,8 +56,8 @@
   "leagues": [
     {
       "id": "ten10-moonday-twv",
-      "name": "Ten10 Moonday",
-      "short": "Ten10M",
+      "name": "Ten10 Motorsports2",
+      "short": "Monday",
       "color": "#118f00",
       "timezone": "America/New_York",
       "active": true,
@@ -79,8 +79,8 @@
     },
     {
       "id": "ten10-oval-grand-nationa-tyt",
-      "name": "Ten10 Oval Grand National",
-      "short": "Ten10O",
+      "name": "Ten10 Motorsports",
+      "short": "Oval",
       "color": "#ff0000",
       "timezone": "America/New_York",
       "active": true,
@@ -96,6 +96,29 @@
         "practiceOffsetMin": 60,
         "qualifyOffsetMin": 15,
         "raceLengthMin": 60,
+        "warmup": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "apex-this-tiu",
+      "name": "APEX This",
+      "short": "ATTues",
+      "color": "#ffdd00",
+      "timezone": "America/New_York",
+      "active": true,
+      "priority": 3,
+      "season": {
+        "name": "GT3 S29",
+        "rounds": 12,
+        "startDate": "2026-09-15"
+      },
+      "defaults": {
+        "dayOfWeek": 2,
+        "startTime": "21:00",
+        "practiceOffsetMin": 120,
+        "qualifyOffsetMin": 15,
+        "raceLengthMin": 45,
         "warmup": false
       },
       "notes": ""
