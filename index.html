@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Race Schedule</title>
+<meta name="description" content="iRacing league schedule: races, tracks, cars and availability.">
+<meta name="theme-color" content="#0c0c0e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<!-- ============================ admin bar ============================ -->
+<div class="admin-bar" id="adminBar" hidden>
+  <div class="in">
+    <b>Admin mode</b>
+    <span id="adminRepo"></span>
+    <span class="spacer" style="flex:1"></span>
+    <span id="dirtyFlag" class="badge warn" hidden>Unsaved changes</span>
+    <button class="btn sm primary" id="btnPublish">Publish to GitHub</button>
+    <button class="btn sm ghost" id="btnLockAdmin">Lock</button>
+  </div>
+</div>
+
+<!-- ============================== topbar ============================= -->
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <div class="mark" id="brandMark">R</div>
+      <div style="min-width:0">
+        <h1 id="siteTitle">Race Schedule</h1>
+        <div class="sub" id="siteSubtitle">iRacing league calendar</div>
+      </div>
+    </div>
+
+    <div class="seg" role="group" aria-label="View">
+      <button data-view="month" aria-pressed="true">Month</button>
+      <button data-view="week" aria-pressed="false">Week</button>
+      <button data-view="list" aria-pressed="false">List</button>
+      <button data-view="season" aria-pressed="false">Seasons</button>
+    </div>
+
+    <button class="btn icon ghost" id="btnSettings" title="Settings" aria-label="Settings">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="shell">
+
+  <!-- next up -->
+  <section id="nextUp"></section>
+
+  <!-- league filter chips -->
+  <div class="filters" id="filters"></div>
+
+  <!-- view host -->
+  <section id="view"></section>
+
+</main>
+
+<button class="fab" id="fabAdd" hidden>+ Race</button>
+
+<!-- ============================ race drawer ========================== -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <div style="flex:1;min-width:0">
+      <div class="k" id="drawerKicker"></div>
+      <h2 id="drawerTitle"></h2>
+    </div>
+    <button class="btn icon ghost" id="drawerClose" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot" id="drawerFoot"></div>
+</aside>
+
+<!-- ============================== modals ============================= -->
+
+<!-- race editor -->
+<div class="modal" id="mRace">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2 id="raceModalTitle">Add race</h2>
+      <button class="btn icon ghost" data-close="mRace" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="grid-2">
+        <div class="field">
+          <label for="f_league">League</label>
+          <select id="f_league"></select>
+        </div>
+        <div class="field">
+          <label for="f_round">Round / week</label>
+          <input type="number" id="f_round" min="1" step="1" placeholder="1">
+          <div class="hint" id="roundHint"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="f_date">Date</label>
+          <input type="date" id="f_date">
+        </div>
+        <div class="field">
+          <label for="f_start">Race start (Eastern)</label>
+          <input type="time" id="f_start" step="300">
+          <div class="hint" id="utcHint"></div>
+        </div>
+      </div>
+
+      <div class="field combo">
+        <label for="f_track">Track</label>
+        <input type="text" id="f_track" autocomplete="off" placeholder="Start typing, or enter anything">
+        <div class="combo-list" id="trackList"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="f_config">Configuration</label>
+          <select id="f_config"></select>
+        </div>
+        <div class="field combo">
+          <label for="f_car">Car</label>
+          <input type="text" id="f_car" autocomplete="off" placeholder="Start typing, or enter anything">
+          <div class="combo-list" id="carList"></div>
+        </div>
+      </div>
+
+      <details id="sessionDetails" open>
+        <summary class="lbl" style="cursor:pointer;margin:18px 0 12px">Session timing</summary>
+        <div class="grid-3">
+          <div class="field">
+            <label for="f_prac">Practice opens</label>
+            <input type="time" id="f_prac" step="300">
+          </div>
+          <div class="field">
+            <label for="f_qual">Qualifying</label>
+            <input type="time" id="f_qual" step="300">
+          </div>
+          <div class="field">
+            <label for="f_len">Race length</label>
+            <div style="display:flex;gap:6px">
+              <input type="number" id="f_lenVal" min="1" step="1" placeholder="60">
+              <select id="f_lenUnit" style="width:92px">
+                <option value="min">minutes</option>
+                <option value="laps">laps</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <label class="check"><input type="checkbox" id="f_warmup"><span>Warmup session before the race</span></label>
+        <div class="hint" id="prefillHint">Leaving practice or qualifying blank uses the league defaults.
+          <button class="btn sm ghost" type="button" id="btnUseDefaults">Apply league defaults</button>
+        </div>
+      </details>
+
+      <div class="field" style="margin-top:16px">
+        <label for="f_status">Status</label>
+        <select id="f_status">
+          <option value="scheduled">Scheduled</option>
+          <option value="confirmed">Confirmed, registered</option>
+          <option value="provisional">Provisional</option>
+          <option value="skipped">Skipping this one</option>
+          <option value="done">Completed</option>
+          <option value="cancelled">Cancelled by league</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="f_notes">Notes</label>
+        <textarea id="f_notes" placeholder="Setup name, tyre plan, anything you want on the card."></textarea>
+      </div>
+
+      <div id="repeatBlock" class="field">
+        <label class="check"><input type="checkbox" id="f_repeat">
+          <span>Repeat weekly<span class="sub">Creates this race and the remaining rounds of the season on the same weekday and time.</span></span>
+        </label>
+        <div id="repeatOpts" hidden style="padding-left:26px">
+          <div class="grid-2">
+            <div class="field">
+              <label for="f_repeatCount">How many rounds in total</label>
+              <input type="number" id="f_repeatCount" min="2" max="52" step="1" value="10">
+            </div>
+            <div class="field">
+              <label for="f_repeatEvery">Every</label>
+              <select id="f_repeatEvery">
+                <option value="7">week</option>
+                <option value="14">2 weeks</option>
+                <option value="21">3 weeks</option>
+                <option value="28">4 weeks</option>
+              </select>
+            </div>
+          </div>
+          <div class="hint">Tracks and cars are left blank on the generated rounds so you can fill them in from the season view.</div>
+        </div>
+      </div>
+
+      <div id="clashWarn" class="note warn" hidden></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn danger" id="btnDeleteRace" hidden>Delete race</button>
+      <span style="flex:1"></span>
+      <button class="btn" data-close="mRace">Cancel</button>
+      <button class="btn primary" id="btnSaveRace">Save race</button>
+    </div>
+  </div>
+</div>
+
+<!-- settings -->
+<div class="modal" id="mSettings">
+  <div class="modal-card wide">
+    <div class="modal-head">
+      <h2>Settings</h2>
+      <button class="btn icon ghost" data-close="mSettings" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-tab="leagues" aria-selected="true">Leagues</button>
+        <button role="tab" data-tab="off" aria-selected="false">Days off</button>
+        <button role="tab" data-tab="email" aria-selected="false">Email</button>
+        <button role="tab" data-tab="site" aria-selected="false">Site</button>
+        <button role="tab" data-tab="github" aria-selected="false">GitHub</button>
+        <button role="tab" data-tab="data" aria-selected="false">Import / export</button>
+      </div>
+      <div id="tabBody"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close="mSettings">Close</button>
+      <button class="btn primary" id="btnPublish2">Publish to GitHub</button>
+    </div>
+  </div>
+</div>
+
+<!-- unlock -->
+<div class="modal" id="mUnlock">
+  <div class="modal-card" style="max-width:420px">
+    <div class="modal-head">
+      <h2>Unlock editing</h2>
+      <button class="btn icon ghost" data-close="mUnlock" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="f_pass">Passcode</label>
+        <input type="password" id="f_pass" autocomplete="current-password" placeholder="••••••••">
+        <div class="hint" id="passHint"></div>
+      </div>
+      <div id="unlockErr" class="note red" hidden></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" data-close="mUnlock">Cancel</button>
+      <button class="btn primary" id="btnUnlock">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toasts"></div>
+
+<script src="assets/content.js"></script>
+<script src="assets/util.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/views.js"></script>
+<script src="assets/admin.js"></script>
+<script src="assets/app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>
