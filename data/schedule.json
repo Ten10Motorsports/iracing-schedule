@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T00:20:37Z",
+  "updatedAt": "2026-09-15T00:21:46Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -638,11 +638,11 @@
   ],
   "offDays": [
     {
-      "id": "o_mfm3y8si",
-      "start": "2026-12-24",
-      "end": "2026-12-26",
-      "reason": "Christmas",
-      "createdAt": "2026-09-14T00:09:32.745Z"
+      "id": "o_mu1xesy2lhza2",
+      "start": "2026-09-22",
+      "end": "2026-09-27",
+      "reason": "Out of Town",
+      "createdAt": "2026-09-15T00:21:04.394Z"
     }
   ],
   "customContent": {
