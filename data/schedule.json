@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-15T00:19:05Z",
+  "updatedAt": "2026-09-15T00:20:37Z",
   "settings": {
     "siteTitle": "Race Schedule",
-    "siteSubtitle": "iRacing league calendar",
+    "siteSubtitle": "iRacing League Calendar",
     "ownerName": "Dylan",
     "timezone": "America/New_York",
     "showUtc": true,
     "clashDetection": true,
     "defaultView": "month",
-    "adminPasscodeHash": "",
+    "adminPasscodeHash": "28995a2c0d04b66d5c7c818536bb00cd1fc1ac422aea47627de0999782fee3f4",
     "github": {
       "owner": "ten10motorsports",
       "repo": "iracing-schedule",
