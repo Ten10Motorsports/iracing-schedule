@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-19T02:19:43Z",
+  "updatedAt": "2026-09-19T02:22:27Z",
   "settings": {
     "siteTitle": "Race Schedule",
     "siteSubtitle": "iRacing League Calendar",
@@ -187,6 +187,29 @@
         "startTime": "20:00",
         "practiceOffsetMin": 30,
         "qualifyOffsetMin": 15,
+        "raceLengthMin": 60,
+        "warmup": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "officials-o02",
+      "name": "Officials",
+      "short": "iROff",
+      "color": "#ff00ea",
+      "timezone": "America/New_York",
+      "active": true,
+      "priority": 7,
+      "season": {
+        "name": "Officials",
+        "rounds": 0,
+        "startDate": "2026-09-14"
+      },
+      "defaults": {
+        "dayOfWeek": 6,
+        "startTime": "14:00",
+        "practiceOffsetMin": 30,
+        "qualifyOffsetMin": 5,
         "raceLengthMin": 60,
         "warmup": false
       },
